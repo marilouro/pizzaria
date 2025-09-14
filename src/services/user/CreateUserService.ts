@@ -1,4 +1,4 @@
-import PrismaClient from '../../prisma'
+import prismaClient from '../../prisma'
 
 interface userRequest {
     name: string;
@@ -14,19 +14,33 @@ class CreateUserService {
             throw new Error("Email incorrect");
         }
 
+     
         //verificar se o email está cadastrado na plataforma
-        const userAlreadyExists = await PrismaClient.user.findFirst({
+        const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 email: email
             }
         })
+
         if(userAlreadyExists) {
             throw new Error("User already exists");
-        
         }
 
-        
-        return {name: name};
+        const user = await prismaClient.user.create({
+            data: {
+                name: name,
+                email: email,
+                password: password
+            },
+
+            select: {
+                id: true,
+                name: true,
+                email: true
+            }
+        })
+
+        return user;
     }
 }
 
