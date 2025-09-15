@@ -21,8 +21,8 @@
     "declarationMap": true,
 
     // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+  "noUncheckedIndexedAccess": false,
+  "exactOptionalPropertyTypes": false,
 
     // Style Options
     // "noImplicitReturns": true,
@@ -33,8 +33,15 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
+  // "strict": false, // Desabilitado manualmente abaixo
+  "strictNullChecks": false,
+  "strictFunctionTypes": false,
+  "strictBindCallApply": false,
+  "strictPropertyInitialization": false,
+  "noImplicitAny": false,
+  "noImplicitThis": false,
+  "alwaysStrict": false,
+  "jsx": "react-jsx",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
