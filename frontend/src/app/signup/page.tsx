@@ -2,9 +2,38 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from '../page.module.scss'
 import pizzaria from '/public/pizzaria.png'
+import { api } from "@/services/api"
+import { redirect } from "next/navigation"
 
 export default function Signup(){
 
+    async function handleRegister(formData: FormData){
+        "use server"
+
+        const name = formData.get("name")
+        const email = formData.get("email")
+        const password = formData.get("password")
+        if ( name ==="" || email === "" || password === ""){
+            console.log("Preencha todos os campos")
+            return
+        }
+
+        try{
+            await api.post("/users",{
+                name,
+                email,
+                password
+            })
+            
+
+        }catch(err){
+            console.log("error")
+            console.log(err)
+        }
+
+        redirect("/")
+
+    }
 
     return(
         <>
@@ -13,7 +42,7 @@ export default function Signup(){
 
         <section className={styles.login}>
             <h1>Criando sua conta</h1>
-        <form>
+        <form action={handleRegister}>
           <input
           type="text"
           required 
