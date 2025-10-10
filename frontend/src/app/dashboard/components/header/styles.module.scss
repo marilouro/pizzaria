@@ -1,6 +1,7 @@
 .headerContainer{ 
-    height: 5rem; 
-
+    height: 5rem;
+    background: var(--dark-700);
+    width: 100%;
 }
 
 .headerContent{
@@ -12,6 +13,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    a{
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
 
     nav{
         display: flex;
