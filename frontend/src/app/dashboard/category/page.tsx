@@ -17,19 +17,20 @@ export default function Category(){
             name: name,
         }
 
-        const token = getCookieServer();
-        
+        try {
+            const token = await getCookieServer();
+            
+            const response = await api.post('/category', data, {
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            })
 
-        const response = await api.post('/category', data, {
-            headers:{
-                Authorization: `Bearer ${token}`
-            }
-        })
-
-        .catch((err) => {
-            console.log(err)
+            console.log("Categoria criada com sucesso:", response.data)
+        } catch(err) {
+            console.log("Erro ao criar categoria:", err)
             return;
-        })
+        }
         
         redirect('/dashboard')
 
