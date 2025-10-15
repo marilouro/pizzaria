@@ -5,7 +5,7 @@ declare module 'express-serve-static-core' {
     }
 }
 declare class DetailUserController {
-    handle(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
+    handle(req: Request, res: Response): Promise<any>;
 }
 export { DetailUserController };
 //# sourceMappingURL=DetailUserController.d.ts.map

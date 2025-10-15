@@ -4,11 +4,7 @@ interface userRequest {
     password: string;
 }
 declare class CreateUserService {
-    execute({ name, email, password }: userRequest): Promise<{
-        name: string;
-        email: string;
-        id: string;
-    }>;
+    execute({ name, email, password }: userRequest): Promise<any>;
 }
 export { CreateUserService };
 //# sourceMappingURL=CreateUserService.d.ts.map

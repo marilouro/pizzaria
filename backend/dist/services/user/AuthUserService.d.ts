@@ -4,10 +4,10 @@ interface AuthRequest {
 }
 declare class AuthUserService {
     execute({ email, password }: AuthRequest): Promise<{
-        id: string;
-        name: string;
-        email: string;
-        token: string;
+        id: any;
+        name: any;
+        email: any;
+        token: any;
     }>;
 }
 export { AuthUserService };

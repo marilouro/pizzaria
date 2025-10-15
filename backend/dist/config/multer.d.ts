@@ -1,7 +1,6 @@
-import multer from "multer";
 declare const _default: {
     upload(folder: string): {
-        storage: multer.StorageEngine;
+        storage: any;
     };
 };
 export default _default;

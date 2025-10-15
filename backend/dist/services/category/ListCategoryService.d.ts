@@ -1,8 +1,5 @@
 declare class ListCategoryService {
-    execute(): Promise<{
-        name: string;
-        id: string;
-    }[]>;
+    execute(): Promise<any>;
 }
 export { ListCategoryService };
 //# sourceMappingURL=ListCategoryService.d.ts.map
